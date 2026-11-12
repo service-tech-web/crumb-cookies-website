@@ -1,0 +1,113 @@
+/* Home: "A little unhinged" section and mascot */
+
+.bakery {
+  background: var(--red);
+  color: var(--cream);
+  padding: 42px 0 50px;
+  overflow: hidden;
+}
+
+.bakery .wrap {
+  display: grid;
+  grid-template-columns: .9fr 1.3fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.bakery .anton {
+  color: var(--cream);
+  font-size: clamp(46px,6.2vw,89px);
+  margin-top: 18px;
+}
+
+.mascot {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.mascot svg {
+  width: min(100%,430px);
+  height: auto;
+}
+
+.mascot svg .sun {
+  transform-origin: 50% 50%;
+  animation: spin 40s linear infinite;
+}
+
+.mascot svg .guy {
+  transform-origin: 50% 90%;
+  animation: hop 2.4s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hop {
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+.mascot .tag {
+  position: absolute;
+  left: 12%;
+  bottom: -2%;
+  font-weight: 700;
+  font-size: 25px;
+  transform: rotate(5deg);
+}
+
+.bakery p.body {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 24px 0 34px;
+  max-width: 735px;
+}
+
+.facts {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.facts b {
+  display: block;
+  font-size: 18px;
+}
+
+@media (max-width:900px) {
+  .bakery .wrap,
+  .build .wrap,
+  footer .top {
+    grid-template-columns: 1fr;
+  }
+
+  .bakery .wrap {
+    gap: 30px;
+  }
+
+  .mascot {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+.mascot:hover .guy {
+  animation-duration: .7s;
+}
+
+@media (max-width:560px) {
+  .bakery p.body,
+  .build p.sub {
+    font-size: 18px;
+  }
+
+  .facts {
+    gap: 26px;
+  }
+}

@@ -1,0 +1,138 @@
+/* Home: hero, floating crumbs and ticker */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  max-width: 1440px;
+  height: 748px;
+  margin: 0 auto;
+}
+
+.hero .copy {
+  position: relative;
+  z-index: 2;
+  padding: 37px clamp(20px,4.4vw,64px) 0;
+}
+
+.hero h1 {
+  font-size: clamp(72px,10.9vw,157px);
+  margin-top: 30px;
+}
+
+.hero p.lead {
+  font-size: 21px;
+  max-width: 610px;
+  margin: 34px 0 29px;
+}
+
+.hero .cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.hero-img {
+  position: absolute;
+  left: 43.96%;
+  top: -36px;
+  width: 56.25%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.badge {
+  position: absolute;
+  left: 82.5%;
+  top: 506px;
+  z-index: 3;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background: #f7c93c;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  transform: rotate(10deg);
+  font-family: 'Bricolage Grotesque',sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.04;
+  box-shadow: 0 0 0 5px var(--cream),0 0 0 7px var(--brown) inset;
+}
+
+.crumbs span {
+  position: absolute;
+  border-radius: 45% 55% 50% 50%;
+  background: #b9803e;
+  will-change: transform;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes tick {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width:900px) {
+  .stage {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .hero-img {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .badge {
+    left: auto;
+    right: 6%;
+    top: auto;
+    bottom: 40px;
+  }
+}
+
+.badge {
+  transition: transform .9s cubic-bezier(.2,1.2,.3,1);
+}
+
+.badge:hover {
+  transform: rotate(370deg) scale(1.08);
+}
+
+@media (max-width:560px) {
+  .hero h1 {
+    font-size: clamp(64px,22vw,96px);
+  }
+
+  .hero p.lead {
+    font-size: 18px;
+  }
+
+  .hero .lead br {
+    display: none;
+  }
+
+  .badge {
+    width: 112px;
+    height: 112px;
+    font-size: 17px;
+  }
+}

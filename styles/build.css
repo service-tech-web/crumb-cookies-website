@@ -1,0 +1,132 @@
+/* Home: "Pick your happy" box section */
+
+.build {
+  background: var(--green);
+  padding: 50px 0 40px;
+}
+
+.build .wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.build .anton {
+  color: var(--brown);
+  font-size: clamp(46px,5.4vw,77px);
+  margin: 16px 0 22px;
+}
+
+.build p.sub {
+  font-size: 21px;
+  max-width: 630px;
+}
+
+.opts {
+  display: flex;
+  gap: 14px;
+  margin: 28px 0 24px;
+  flex-wrap: wrap;
+}
+
+.opt {
+  border: 1px solid var(--brown);
+  background: transparent;
+  color: var(--brown);
+  border-radius: 26px;
+  padding: 14px 24px;
+  font: 700 16px 'DM Sans',sans-serif;
+  cursor: pointer;
+  min-width: 178px;
+  text-align: left;
+}
+
+.opt[aria-pressed=true] {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.build .btn {
+  width: min(370px,100%);
+  justify-content: space-between;
+  padding: 21px 24px;
+}
+
+.build small {
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.box {
+  margin-left: calc(-1*clamp(20px,4.4vw,64px) - 10px);
+}
+
+.box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 750/557;
+  object-fit: contain;
+}
+
+@media (max-width:900px) {
+  .box {
+    margin-left: 0;
+  }
+
+  .build .box {
+    order: 2;
+  }
+}
+
+.opt {
+  transition: transform .2s,box-shadow .2s,background .25s,color .25s;
+}
+
+.opt:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 rgba(59,33,24,.85);
+}
+
+.opt:active {
+  transform: scale(.95);
+  box-shadow: none;
+}
+
+.opt.bump,
+#buildBtn span.bump {
+  animation: bump .45s cubic-bezier(.3,1.6,.5,1);
+}
+
+.box img {
+  transition: transform .25s ease-out;
+  transform: perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+}
+
+@media (max-width:900px) {
+  .box img {
+    aspect-ratio: auto;
+  }
+
+  .build {
+    padding-top: 36px;
+  }
+}
+
+@media (max-width:560px) {
+  .build .sub br {
+    display: none;
+  }
+
+  .opts {
+    gap: 10px;
+  }
+
+  .opt {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+  }
+}

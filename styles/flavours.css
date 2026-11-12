@@ -1,0 +1,200 @@
+/* Home: "Find your weakness" flavour cards */
+
+.flavours {
+  padding: 46px 0 70px;
+}
+
+.flavours .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.flavours h2 {
+  font-size: clamp(52px,7.3vw,105px);
+}
+
+.flavours .head p {
+  font-size: 19px;
+  max-width: 310px;
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.card {
+  position: relative;
+  text-align: left;
+}
+
+.card:nth-child(2) {
+  margin-top: 68px;
+}
+
+.card .art {
+  position: relative;
+  width: 113%;
+  margin: 0 -6.5%;
+  aspect-ratio: 1;
+}
+
+.card .art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .35s cubic-bezier(.3,1.6,.5,1);
+}
+
+.card:hover .art img {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.sticker {
+  position: absolute;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 11px 14px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.card .num {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: -34px;
+  position: relative;
+}
+
+.card h3 {
+  font-size: 29px;
+  line-height: 1.15;
+  margin: 6px 0 10px;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.more {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(59,33,24,.3);
+  margin-top: 50px;
+  padding-top: 26px;
+}
+
+.more b.l {
+  color: var(--red);
+  font-size: 13px;
+  letter-spacing: .04em;
+  width: 292px;
+}
+
+.more b {
+  font-size: 19px;
+}
+
+@media (max-width:900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .more b.l {
+    width: 100%;
+  }
+}
+
+.card {
+  transition: transform .35s cubic-bezier(.2,.9,.2,1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  display: inline-block;
+  background: linear-gradient(var(--red),var(--red)) 0 100%/0 3px no-repeat;
+  transition: background-size .45s;
+}
+
+.card:hover h3 {
+  background-size: 100% 3px;
+}
+
+.card .num {
+  transition: letter-spacing .3s;
+}
+
+.card:hover .num {
+  letter-spacing: .25em;
+}
+
+.sticker {
+  transition: scale .35s cubic-bezier(.3,1.8,.5,1);
+}
+
+.card:hover .sticker {
+  scale: 1.14;
+}
+
+.more b:not(.l) {
+  transition: color .25s,translate .25s;
+  cursor: default;
+}
+
+.more b:not(.l):hover {
+  color: var(--red);
+  translate: 6px 0;
+}
+
+@media (max-width:900px) {
+  .flavours {
+    padding-bottom: 50px;
+  }
+
+  .flavours .head p {
+    margin-bottom: 0;
+  }
+
+  .card .art {
+    width: 100%;
+    margin: 0;
+  }
+
+  .card .num {
+    margin-top: -10px;
+  }
+}
+
+@media (max-width:560px) {
+  .more {
+    gap: 12px 22px;
+  }
+
+  .more b.l {
+    width: 100%;
+  }
+
+  .more b {
+    font-size: 17px;
+  }
+}

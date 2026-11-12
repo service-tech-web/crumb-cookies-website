@@ -1,0 +1,158 @@
+/* Footer, newsletter and legal links */
+
+footer {
+  background: var(--brown);
+  color: var(--cream);
+  padding: 12px 0 24px;
+}
+
+footer .top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+footer .logo {
+  font-size: clamp(90px,10.8vw,155px);
+  color: var(--cream);
+}
+
+footer .tagline {
+  font-size: 20px;
+  margin-top: -6px;
+}
+
+footer h4 {
+  font-size: 23px;
+  margin: 30px 0 8px;
+}
+
+footer form {
+  display: flex;
+  border-bottom: 1px solid var(--cream);
+  margin: 26px 0 22px;
+}
+
+footer input {
+  flex: 1;
+  background: none;
+  border: 0;
+  color: var(--cream);
+  font: 16px 'DM Sans',sans-serif;
+  padding: 14px 0;
+  outline: none;
+}
+
+footer input::placeholder {
+  color: var(--cream);
+  opacity: .85;
+}
+
+footer form button {
+  background: none;
+  border: 0;
+  color: var(--cream);
+  font-size: 33px;
+  cursor: pointer;
+}
+
+#msg {
+  min-height: 22px;
+  font-size: 15px;
+}
+
+.links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.legal {
+  border-top: 1px solid rgba(255,243,217,.25);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.legal div {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.links a {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.links a:hover {
+  text-decoration: none;
+}
+
+footer form {
+  position: relative;
+  transition: border-color .3s;
+}
+
+footer form::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: #f7c93c;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .4s cubic-bezier(.2,.9,.2,1);
+}
+
+footer form:focus-within::after {
+  transform: scaleX(1);
+}
+
+footer form button {
+  transition: transform .3s cubic-bezier(.3,1.6,.5,1);
+}
+
+footer form button:hover {
+  transform: translate(4px,-4px) rotate(8deg);
+}
+
+footer form button:active {
+  transform: scale(.85);
+}
+
+#msg.pop {
+  animation: msg .5s cubic-bezier(.3,1.6,.5,1);
+}
+
+@keyframes msg {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.9);
+  }
+}
+
+@media (max-width:900px) {
+  footer .logo {
+    font-size: clamp(80px,26vw,150px);
+  }
+}
+
+@media (max-width:560px) {
+  .legal {
+    flex-direction: column;
+  }
+}
