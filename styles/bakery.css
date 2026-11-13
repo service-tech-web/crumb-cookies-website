@@ -81,9 +81,7 @@
 }
 
 @media (max-width:900px) {
-  .bakery .wrap,
-  .build .wrap,
-  footer .top {
+  .bakery .wrap {
     grid-template-columns: 1fr;
   }
 
@@ -102,8 +100,7 @@
 }
 
 @media (max-width:560px) {
-  .bakery p.body,
-  .build p.sub {
+  .bakery p.body {
     font-size: 18px;
   }
 

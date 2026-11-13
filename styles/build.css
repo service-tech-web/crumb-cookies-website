@@ -31,20 +31,25 @@
 }
 
 .opt {
-  border: 1px solid var(--brown);
-  background: transparent;
+  border: 2px solid var(--brown);
+  background: #fff8e8;
   color: var(--brown);
   border-radius: 26px;
   padding: 14px 24px;
   font: 700 16px 'DM Sans',sans-serif;
   cursor: pointer;
   min-width: 178px;
+  min-height: 52px;
   text-align: left;
+  box-shadow: 0 4px 0 var(--brown);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .opt[aria-pressed=true] {
   background: var(--brown);
   color: var(--cream);
+  box-shadow: 0 4px 0 var(--red);
 }
 
 .build .btn {
@@ -85,14 +90,17 @@
   transition: transform .2s,box-shadow .2s,background .25s,color .25s;
 }
 
-.opt:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 0 rgba(59,33,24,.85);
+/* hover only on devices with a mouse, so it doesn't stick after a tap on phones */
+@media (hover:hover) {
+  .opt:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 var(--brown);
+  }
 }
 
 .opt:active {
-  transform: scale(.95);
-  box-shadow: none;
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--brown);
 }
 
 .opt.bump,
@@ -127,6 +135,23 @@
   .opt {
     flex: 1;
     min-width: 0;
-    padding: 14px 16px;
+    min-height: 62px;
+    padding: 16px 10px;
+    font-size: 19px;
+    text-align: center;
+    border-radius: 31px;
+  }
+}
+
+/* phone layout: these must come after the desktop rules above (moved from bakery.css) */
+@media (max-width:900px) {
+  .build .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:560px) {
+  .build p.sub {
+    font-size: 18px;
   }
 }

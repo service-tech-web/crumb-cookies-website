@@ -156,3 +156,10 @@ footer form button:active {
     flex-direction: column;
   }
 }
+
+/* phone layout: must come after the desktop rule above (moved from bakery.css) */
+@media (max-width:900px) {
+  footer .top {
+    grid-template-columns: 1fr;
+  }
+}
